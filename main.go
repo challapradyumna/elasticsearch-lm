@@ -207,25 +207,25 @@ func mainLoop(esURL string, sqsURL string, sqsClient *sqs.Client, ec2Client *ec2
 
 func main() {
 	roleName, roleNameErr := os.LookupEnv("ROLE_NAME")
-	if roleNameErr {
+	if !roleNameErr {
 		log.Fatal("Did not find Role in ROLE_NAME env variable")
 	}
 	log.Println("Loaded role:" + roleName + "")
 
 	region, regionErr := os.LookupEnv("AWS_REGION")
-	if regionErr {
+	if !regionErr {
 		log.Fatal(" Did not find region in AWS_REGION env variable")
 	}
 	log.Println("Loaded region:" + region + "")
 
 	esURL, esURLError := os.LookupEnv("ES_URL")
-	if esURLError {
+	if !esURLError {
 		log.Fatal(" Did not find elastic search master URL in ES_URL env variable ")
 	}
 	log.Println("Loaded elastic search URL:" + esURL + "")
 
 	sqsURL, sqsURLError := os.LookupEnv("SQS_URL")
-	if sqsURLError {
+	if !sqsURLError {
 		log.Fatal(" Did not find sqs URL in SQS_URL env variable ")
 	}
 	log.Println("Loaded sqs search URL:" + sqsURL + "")
