@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  elasticsearch-lm:
+    image: challapradyumna/elasticsearch-lm
+    environment: 
+      ROLE_NAME: "elasticsearch-lm"
+      AWS_REGION: "us-east-1"
+      ES_URL: "elasticsearch-api.domain.com:9200"
+      SQS_URL: "queue-name.sqs.amazonaws.com"
